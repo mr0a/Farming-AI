@@ -39,4 +39,3 @@ def create_app():
         db.create_all()
         return app
 
-create_app()
