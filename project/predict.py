@@ -1,7 +1,7 @@
-from keras.models import load_model
+import tensorflow as tf
 from random import randint
 
-model = load_model('/workspace/demologin/project/new_nn.h5')
+model = tf.keras.models.load_model('/workspace/demologin/project/new_nn.h5')
 
 
 def get_noutput(n_output, temp, hum, ph, rain, water):
