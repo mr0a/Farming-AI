@@ -11,7 +11,6 @@ def index():
 
 
 @main.route('/predict', methods=['POST', 'GET'])
-@login_required
 def predict():
     v1 = float(request.form.get('temperature'))
     v2 = float(request.form.get('humidity'))

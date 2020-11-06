@@ -11,8 +11,6 @@
     text-align: center;
 }
 
-input[type="text"]::placeholder {  
-                  
-                /* Firefox, Chrome, Opera */ 
-                text-align: center; 
-            } 
+input[type="text"]::placeholder{  
+    text-align: center; 
+}
