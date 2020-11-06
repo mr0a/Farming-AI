@@ -1,0 +1,18 @@
+.mystyle{
+    padding: 10px;
+    margin: 0 10px 10px 10px;
+}
+
+.container{
+    width: 30vw;
+}
+
+.input{
+    text-align: center;
+}
+
+input[type="text"]::placeholder {  
+                  
+                /* Firefox, Chrome, Opera */ 
+                text-align: right; 
+            } 

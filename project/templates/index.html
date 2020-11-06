@@ -2,9 +2,74 @@
 
 {% block content %}
 <h1 class="title">
-    Flask Login
+    Smart Farm
 </h1>
-<h2 class="subtitle">
-    Become a Smart Farmer
-</h2>
+{% if not current_user.is_authenticated %}
+<div class="container">
+    <a class="button is-info is-medium mystyle" href="{{url_for('auth.signup')}}">
+      SignUp
+    </a>
+    <a class="button is-success is-medium mystyle" href="{{url_for('auth.login')}}">
+      Login
+    </a>
+    <h2 class="subtitle">
+        Become a Smart Farmer
+    </h2>
+</div>
+{% else %}
+<div class="container has-text-centered">
+    <h1 class="title">
+        Crop Prediction
+    </h1>
+    <form method="post" action="predict">
+        <div class="field">
+          <label class="label">Temperature</label>
+          <div class="control">
+            <input class="input" type="text" name="temperature" placeholder="Temperature">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Humidity</label>
+          <div class="control">
+            <input class="input" type="text" name="humidity" placeholder="Humidity">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Ph</label>
+          <div class="control">
+            <input class="input" type="text" name="ph" placeholder="Ph">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Rainfall</label>
+          <div class="control">
+            <input class="input" type="text" name="rainfall" placeholder="Rainfall">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Subject</label>
+          <div class="control">
+            <div class="select">
+              <select name="water">
+                  <option value="1">Very Low</option>
+                  <option value="2">Low</option>
+                  <option value="3">Medium</option>
+                  <option value="4">High</option>
+                  <option value="5">Very High</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="control">
+            <input type="submit" class="button is-link" value="Submit">
+        </div>
+    </form>
+    
+</div>
+
+{% endif %}
 {% endblock %}
