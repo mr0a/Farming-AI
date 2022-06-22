@@ -1,0 +1,172 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+    .col-sm-4 {
+        background-color: #bffff4;
+        box-shadow: 0 4px 8px 0 rgb(95, 91, 91);
+        transition: 0.3s;
+        width: 37%;
+        border-radius: 30px;
+        padding: 50px 0px 50px 0px;
+
+    }
+
+    .col-sm-4:hover {
+        color: rgb(165, 247, 15);
+
+        background-color: #40bce2;
+        box-shadow: 0 8px 16px 0 rgb(253, 251, 251);
+    }
+
+    .img {
+        border-radius: 50%;
+    }
+
+    a:hover {
+        color: rgb(0, 255, 64);
+        color: grey;
+    }
+
+
+    .star-ratings-css {
+        unicode-bidi: bidi-override;
+        color: rgb(20, 10, 10);
+        font-size: 25px;
+        height: 25px;
+        width: 100px;
+        margin: 0 auto;
+        position: relative;
+        text-shadow: 0 1px 0 #e1e28c;
+        padding: 0px 50px 50px 0px;
+    }
+
+    .star-ratings-css::before {
+        content: '★★★★★';
+        opacity: .3;
+        padding: 0px 0px 50px 0px;
+    }
+
+    [title=".000"]::after {
+        width: 0%;
+    }
+
+    [title=".125"]::after {
+        width: 12.5%;
+    }
+
+    [title=".250"]::after {
+        width: 25%;
+    }
+
+    [title=".375"]::after {
+        width: 37.5%;
+    }
+
+    [title=".500"]::after {
+        width: 50%;
+    }
+
+    [title=".625"]::after {
+        width: 62.5%;
+    }
+
+    [title=".750"]::after {
+        width: 75%;
+    }
+
+    [title=".875"]::after {
+        width: 87.5%;
+    }
+
+    .star-ratings-css::after {
+        color: gold;
+        content: '★★★★★';
+        text-shadow: 0 1px 0 #ab5414;
+        position: absolute;
+        z-index: 1;
+        display: block;
+        left: 0;
+        top: 0;
+        width: attr(rating);
+        overflow: hidden;
+        padding: 0px 0px 50px 0px;
+
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+    body {
+        margin: 50px;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        background: silver;
+
+        font-size: 30px;
+    }
+
+    /* .containerdiv {
+        border: 0;
+        float:none;
+        position: relative;
+        width: 150px;
+    }
+
+    .cornerimage {
+        border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+
+    img {
+        max-width: 150px;
+    } */
+</style>
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for crop in result.values() %}
+
+<body>
+
+
+    <br>
+    <center>
+        <div class="col-sm-4">
+            <a href="{{ url_for('static', filename = 'static/rice/Rice.html') }}">
+                <h1 style="font-size: x-large; color: rgb(0, 0, 0);"><strong><b>{{crop.name}}</b> </strong>
+
+                </h1>
+
+                <img class="img" src="{{ url_for('static', filename='crop_icon/'+crop.name+'.png')}}" alt="">
+
+                <p>Growth period:{{crop.growth_period}} </p>
+                <p>Soil type:{{crop.soil_type}} </p>
+                Water requirement:
+                <p class="star-ratings-css" title="{{crop.water}}"></p>
+
+            </a>
+        </div>
+    </center>
+    <br>
+
+
+</body>
+
+
+{% endfor %}
+
+{% endblock %}

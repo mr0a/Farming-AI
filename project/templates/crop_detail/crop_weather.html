@@ -1,0 +1,136 @@
+<html>
+
+<head>
+  <title>Weather Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .checked {
+      color: orange;
+    }
+  </style>
+</head>
+
+<body style="text-align:center;background-color:#D1F2EB">
+  <h1 style="font-family:algerian;background-color:#17A589;color:white">Weather Details</h1>
+  <img src="{{ url_for('static', filename='images/'+data.im1) }}" alt="no image" width="1200" height="150">
+  <br><br>
+  <table align="center" style="color:black;font-size: 20px;">
+    <tr>
+      <td>Maximum Temperature</td>
+      <td>: {{data.max_temp}}&deg;c</td>
+    </tr>
+    <tr>
+      <td><br>Minimum Temperature</td>
+      <td><br>: {{data.min_temp}}&deg;c</td>
+    </tr>
+    <tr>
+      <td><br>Humidity Requirement</td>
+      <td><br>: {{data.max_humidity}}% - {{data.min_humidity}}%</td>
+    </tr>
+    <!-- <tr>
+      <td><br>Temperature Requirement analysis</td>
+      <td><br>: <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span< /td>
+    </tr> -->
+  </table>
+  <br><br><br>
+  <!-- <h1 style="font-family:algerian;color:Red">Live Weather forecasting</h1><br>
+  <p align="center" style="font-family:algerian;color:black;">
+    <table style="border: 1px solid black ; border-collapse: collapse">
+    <tr>
+      <td>
+        <div id="m-booked-weather-bl250-75129">
+          <div class="booked-wzs-250-175 weather-customize" style="background-color:#137AE9;width:391px;" id="width3">
+            <div class="booked-wzs-250-175_in">
+              <div class="booked-wzs-250-175-data">
+                <div class="booked-wzs-250-175-left-img wrz-18"> <a target="_blank" href="https://www.booked.net/">
+                    <img src="//s.bookcdn.com/images/letter/logo.gif" alt="Book Your Hotel on Booked.net" /> </a> </div>
+                <div class="booked-wzs-250-175-right">
+                  <div class="booked-wzs-day-deck">
+                    <div class="booked-wzs-day-val">
+                      <div class="booked-wzs-day-number"><span class="plus">+</span>29</div>
+                      <div class="booked-wzs-day-dergee">
+                        <div class="booked-wzs-day-dergee-val">&deg;</div>
+                        <div class="booked-wzs-day-dergee-name">C</div>
+                      </div>
+                    </div>
+                    <div class="booked-wzs-day">
+                      <div class="booked-wzs-day-d">H: <span class="plus">+</span>29&deg;</div>
+                      <div class="booked-wzs-day-n">L: <span class="plus">+</span>23&deg;</div>
+                    </div>
+                  </div>
+                  <div class="booked-wzs-250-175-info">
+                    <div class="booked-wzs-250-175-city smolest">Coimbatore </div>
+                    <div class="booked-wzs-250-175-date">Thursday, 05 November</div>
+                    <div class="booked-wzs-left"> <span class="booked-wzs-bottom-l">See 7-Day Forecast</span> </div>
+                  </div>
+                </div>
+              </div> <a target="_blank" href="https://www.booked.net/weather/coimbatore-38055">
+                <table cellpadding="0" cellspacing="0" class="booked-wzs-table-250">
+                  <tr>
+                    <td>Wed</td>
+                    <td>Fri</td>
+                    <td>Sat</td>
+                    <td>Sun</td>
+                    <td>Mon</td>
+                    <td>Tue</td>
+                  </tr>
+                  <tr>
+                    <td class="week-day-ico">
+                      <div class="wrz-sml wrzs-18"></div>
+                    </td>
+                    <td class="week-day-ico">
+                      <div class="wrz-sml wrzs-18"></div>
+                    </td>
+                    <td class="week-day-ico">
+                      <div class="wrz-sml wrzs-18"></div>
+                    </td>
+                    <td class="week-day-ico">
+                      <div class="wrz-sml wrzs-18"></div>
+                    </td>
+                    <td class="week-day-ico">
+                      <div class="wrz-sml wrzs-01"></div>
+                    </td>
+                    <td class="week-day-ico">
+                      <div class="wrz-sml wrzs-01"></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="week-day-val"><span class="plus">+</span>30&deg;</td>
+                    <td class="week-day-val"><span class="plus">+</span>30&deg;</td>
+                    <td class="week-day-val"><span class="plus">+</span>29&deg;</td>
+                    <td class="week-day-val"><span class="plus">+</span>29&deg;</td>
+                    <td class="week-day-val"><span class="plus">+</span>29&deg;</td>
+                    <td class="week-day-val"><span class="plus">+</span>29&deg;</td>
+                  </tr>
+                  <tr>
+                    <td class="week-day-val"><span class="plus">+</span>22&deg;</td>
+                    <td class="week-day-val"><span class="plus">+</span>22&deg;</td>
+                    <td class="week-day-val"><span class="plus">+</span>22&deg;</td>
+                    <td class="week-day-val"><span class="plus">+</span>21&deg;</td>
+                    <td class="week-day-val"><span class="plus">+</span>21&deg;</td>
+                    <td class="week-day-val"><span class="plus">+</span>21&deg;</td>
+                  </tr>
+                </table>
+              </a>
+            </div>
+          </div>
+        </div>
+        <script
+          type="text/javascript"> var css_file = document.createElement("link"); css_file.setAttribute("rel", "stylesheet"); css_file.setAttribute("type", "text/css"); css_file.setAttribute("href", 'https://s.bookcdn.com/css/w/booked-wzs-widget-275.css?v=0.0.1'); document.getElementsByTagName("head")[0].appendChild(css_file); function setWidgetData(data) { if (typeof (data) != 'undefined' && data.results.length > 0) { for (var i = 0; i < data.results.length; ++i) { var objMainBlock = document.getElementById('m-booked-weather-bl250-75129'); if (objMainBlock !== null) { var copyBlock = document.getElementById('m-bookew-weather-copy-' + data.results[i].widget_type); objMainBlock.innerHTML = data.results[i].html_code; if (copyBlock !== null) objMainBlock.appendChild(copyBlock); } } } else { alert('data=undefined||data.results is empty'); } } </script>
+        <script type="text/javascript" charset="UTF-8"
+          src="https://widgets.booked.net/weather/info?action=get_weather_info&ver=6&cityID=38055&type=3&scode=124&ltid=3457&domid=w209&anc_id=22618&cmetric=1&wlangID=1&color=137AE9&wwidth=391&header_color=ffffff&text_color=333333&link_color=08488D&border_form=1&footer_color=ffffff&footer_text_color=333333&transparent=0"></script>
+        
+      </td>
+    </tr>
+  </table>
+  </p>
+  <br><br><br> -->
+  <p style="font-family:algerian;color:Indigo"><a href="{{url_for('main.crop_detail', crop='rice')}}">Click for Back</a></p>
+  <a href="{{url_for('main.crop_detail', crop='rice')}}"><img src="{{url_for('static', filename='images/rice/back.jpg')}}" alt="no image" width="60" height="60"></a>
+</body>
+
+</html>
